@@ -48,7 +48,8 @@ describe('PurchasePreviewComponent | компонент превьюшки по�
     component.purchase = {
       title: 'foo',
       price: 100,
-      date: new Date(2017, 10, 3)
+      date: new Date(2017, 10, 3),
+      comment: 'com'
     };
     page = new Page(fixture);
     fixture.detectChanges();
@@ -111,10 +112,10 @@ describe('PurchasePreviewComponent | компонент превьюшки по�
     });
 
     it('не отображает комментарий, если он не передан', () => {
-      delete component.purchase.comment;
+      component.purchase.comment = '';
       fixture.detectChanges();
 
-      expect(page.comment).toBeNull();
+      expect(page.text(page.comment)).toBe('');
     });
   });
 });

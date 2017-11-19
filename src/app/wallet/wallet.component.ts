@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Purchase} from '../model/purchase';
+import {isNullOrUndefined, isUndefined} from "util";
 
 @Component({
   selector: 'tfs-wallet',
@@ -10,12 +11,9 @@ export class WalletComponent implements OnInit {
   purchases: Purchase[] = [];
   total = 0;
   isAddPurchaseOpen = false;
+  cardButtonText = 'Добавить';
 
   private currentOpen: number;
-
-  constructor() {
-    this.toggleAdd();
-  }
 
   ngOnInit() {
     // this.purchases = this.getData();
@@ -32,6 +30,7 @@ export class WalletComponent implements OnInit {
 
   toggleAdd() {
     this.isAddPurchaseOpen = !this.isAddPurchaseOpen;
+    this.cardButtonText = this.isAddPurchaseOpen ? 'Отменить' : 'Добавить';
   }
 
   onPreviewClick(index: number) {
@@ -57,17 +56,20 @@ export class WalletComponent implements OnInit {
       {
         title: 'Проезд на метро',
         price: 1700,
-        date: new Date(2017, 10, 3)
+        date: new Date(2017, 10, 3),
+        comment: ''
       },
       {
         title: 'IPhone X 256gb',
         price: 91990,
-        date: new Date(2017, 10, 3)
+        date: new Date(2017, 10, 3),
+        comment: ''
       },
       {
         title: 'Лапша "Доширак"',
         price: 40,
-        date: new Date(2017, 10, 3)
+        date: new Date(2017, 10, 3),
+        comment: ''
       }
     ];
   }

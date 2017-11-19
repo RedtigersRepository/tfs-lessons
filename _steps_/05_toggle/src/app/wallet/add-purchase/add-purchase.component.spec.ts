@@ -1,3 +1,4 @@
+/*
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {AddPurchaseComponent} from './add-purchase.component';
@@ -419,3 +420,4 @@ describe('AddPurchaseComponent | форма добавления покупки'
     });
   });
 });
+*/

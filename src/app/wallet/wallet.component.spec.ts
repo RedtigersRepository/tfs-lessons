@@ -10,17 +10,20 @@ const purchasesMock: Purchase[] = [
   {
     title: 'Проезд на метро',
     price: 1700,
-    date: new Date(2017, 10, 3)
+    date: new Date(2017, 10, 3),
+    comment: ''
   },
   {
     title: 'IPhone X 256gb',
     price: 91990,
-    date: new Date(2017, 10, 3)
+    date: new Date(2017, 10, 3),
+    comment: ''
   },
   {
     title: 'Лапша "Доширак"',
     price: 40,
-    date: new Date(2017, 10, 3)
+    date: new Date(2017, 10, 3),
+    comment: ''
   }
 ];
 
@@ -174,7 +177,8 @@ describe('WalletComponent | компонент кошелька', () => {
       component.onAddPurchase({
         title: 'foo',
         price: 100,
-        date: new Date(2017, 10, 3)
+        date: new Date(2017, 10, 3),
+        comment: 'com'
       });
       fixture.detectChanges();
     });
@@ -183,7 +187,8 @@ describe('WalletComponent | компонент кошелька', () => {
       expect(component.purchases[0]).toEqual({
         title: 'foo',
         price: 100,
-        date: new Date(2017, 10, 3)
+        date: new Date(2017, 10, 3),
+        comment: 'com'
       });
     });
 

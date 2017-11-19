@@ -10,6 +10,7 @@ import {currencyCode} from '../../constants/currency.const';
 export class PurchasePreviewComponent implements OnInit {
   @Input() purchase: Purchase;
   @Input() isOpen: boolean;
+  @Input() isCommentExist: boolean;
   @Output() previewClick = new EventEmitter();
 
   currencyCode = currencyCode;
@@ -18,6 +19,8 @@ export class PurchasePreviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isOpen = false;
+    this.isCommentExist = (this.purchase.comment === null || this.purchase.comment === '') ? false : true;
   }
 
   onClick() {

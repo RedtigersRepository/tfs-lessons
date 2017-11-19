@@ -2,9 +2,15 @@
   <div class="form-group">
     <input formControlName="title"
            type="text"
+           id="title"
            class="form-control"
            automation-id="title-control"
            placeholder="Название">
+    <div automation-id="title-error" *ngIf="form.controls.title.invalid === true">
+      <p *ngIf="form.controls.title.errors.required" class="error">поле обязательно для заполнения</p>
+      <p *ngIf="form.controls.title.errors.minlength" class="error">минимальная длина — 3</p>
+      <p *ngIf="form.controls.title.errors.maxlength" class="error">максимальная длина — 80</p>
+    </div>
   </div>
   <div class="form-group">
     <input formControlName="price"
@@ -12,6 +18,25 @@
            class="form-control"
            automation-id="price-control"
            placeholder="Стоимость">
+    <div automation-id="price-error" *ngIf="form.controls.price.invalid === true">
+      <p *ngIf="form.controls.price.errors.required" class="error">поле обязательно для заполнения</p>
+      <p *ngIf="form.controls.price.errors.min && !form.controls.price.errors.pattern" class="error">минимальное значение 10</p>
+      <p *ngIf="form.controls.price.errors.max && !form.controls.price.errors.pattern" class="error">максимальное значение 1000000</p>
+      <p *ngIf="form.controls.price.errors.pattern" class="error">разрешены лишь цифры</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <input formControlName="date"
+           type="date"
+           class="form-control"
+           automation-id="date-control">
+  </div>
+  <div class="form-group">
+  <input formControlName="comment"
+         type="text"
+         class="form-control"
+         automation-id="comment-control"
+         placeholder="Комментарий">
   </div>
   <div class="form-group">
     <button type="submit"
@@ -23,4 +48,3 @@
   </div>
 </form>
 
-{{form.get('title').errors | json}}
