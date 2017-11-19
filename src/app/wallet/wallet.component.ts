@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Purchase} from '../model/purchase';
-import {isNullOrUndefined, isUndefined} from "util";
 
 @Component({
   selector: 'tfs-wallet',
